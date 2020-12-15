@@ -30,17 +30,9 @@ public class PopularVideosFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         movieLists = new ArrayList<>();
-
         for (int i=0;i<100;i++){
-            movieLists.add(new MovieList(R.drawable.movie1, "Movie "+String.valueOf(i+1)));
+            movieLists.add(new MovieList(R.drawable.penguin, "Movie "+String.valueOf(i+1)));
         }
-
-//        movieLists.add(new MovieList(R.drawable.movie1, "movie2"));
-//        movieLists.add(new MovieList(R.drawable.movie1, "movie3"));
-//        movieLists.add(new MovieList(R.drawable.movie1, "movie4"));
-//        movieLists.add(new MovieList(R.drawable.movie1, "movie5"));
-//        movieLists.add(new MovieList(R.drawable.movie1, "movie6"));
-
         recyclerviewAdapter = new RecyclerviewAdapter(getContext(),movieLists);
     }
 

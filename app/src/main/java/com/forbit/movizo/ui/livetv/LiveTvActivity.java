@@ -31,7 +31,7 @@ public class LiveTvActivity extends AppCompatActivity {
 
         liveTvList = new ArrayList<>();
         for (int i=0;i<100;i++){
-            liveTvList.add(new LiveTv(R.drawable.gtv, "TV "+String.valueOf(i+1)));
+            liveTvList.add(new LiveTv(R.drawable.somoy, "TV "+String.valueOf(i+1)));
         }
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -39,11 +39,10 @@ public class LiveTvActivity extends AppCompatActivity {
         recyclerView.setAdapter(liveTvAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
 
-
         //initialize and assign variable//
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnavigation);
 
-        //Set home selected//
+        //Set live tv selected//
         bottomNavigationView.setSelectedItemId(R.id.livetv);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -66,7 +65,6 @@ public class LiveTvActivity extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), KidsActivity.class));
                         overridePendingTransition(0, 0);
                         return true;
-
                 }
                 return false;
             }

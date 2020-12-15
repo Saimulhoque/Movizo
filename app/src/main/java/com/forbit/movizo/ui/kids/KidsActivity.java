@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 import com.forbit.movizo.ui.livetv.LiveTvActivity;
 import com.forbit.movizo.R;
+import com.forbit.movizo.ui.main.popularVideos.PopularVideosFragment;
 import com.forbit.movizo.ui.upcoming.UpcomingActivity;
 import com.forbit.movizo.ui.main.MainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -20,30 +21,33 @@ import java.util.List;
 
 public class KidsActivity extends AppCompatActivity {
 
-    KidsAdapter kidsAdapter;
-    RecyclerView recyclerView;
-    List<Kids> kidsList;
+    PopularVideosFragment mrbean,mashaandthebear,tootooboy,tomandjerry,motopatlu,chotabheem,rudra,inspectorsingham;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kids);
 
-        kidsList = new ArrayList<>();
-        for (int i=0;i<100;i++){
-            kidsList.add(new Kids(R.drawable.cartoon1, "Cartoon "+String.valueOf(i+1)));
-        }
+        mrbean = (PopularVideosFragment) getSupportFragmentManager().findFragmentById(R.id.Mr_Bean);
+        mashaandthebear = (PopularVideosFragment) getSupportFragmentManager().findFragmentById(R.id.masha_andbear);
+        tootooboy = (PopularVideosFragment) getSupportFragmentManager().findFragmentById(R.id.tootoo_boy);
+        tomandjerry = (PopularVideosFragment) getSupportFragmentManager().findFragmentById(R.id.tomand_jerry);
+        motopatlu = (PopularVideosFragment) getSupportFragmentManager().findFragmentById(R.id.moto_patlu);
+        chotabheem = (PopularVideosFragment) getSupportFragmentManager().findFragmentById(R.id.chota_bheem);
+        rudra = (PopularVideosFragment) getSupportFragmentManager().findFragmentById(R.id.Rudra);
+        inspectorsingham = (PopularVideosFragment) getSupportFragmentManager().findFragmentById(R.id.inspector_singham);
 
-        recyclerView = findViewById(R.id.recyclerView);
-        kidsAdapter = new KidsAdapter(this,kidsList);
-        recyclerView.setAdapter(kidsAdapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
-
-
+        mrbean.setTitle("Mr Bean");
+        mashaandthebear.setTitle("Masha And The Bear");
+        tootooboy.setTitle("Too Too Boy");
+        tomandjerry.setTitle("Tom And Jerry");
+        motopatlu.setTitle("Motu Patlu");
+        chotabheem.setTitle("Chota Bheem");
+        rudra.setTitle("Rudra");
+        inspectorsingham.setTitle("Inspector Singham");
 
         //initialize and assign variable//
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnavigation);
-
         //Set home selected//
         bottomNavigationView.setSelectedItemId(R.id.kids);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

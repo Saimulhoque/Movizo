@@ -28,6 +28,12 @@ android {
     }
 }
 
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -38,9 +44,16 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-
-    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.google.android.material:material:1.2.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation 'com.github.sohel2178:MyPlayer:1.0.2'
+
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 
 }

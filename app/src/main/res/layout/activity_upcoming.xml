@@ -5,20 +5,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.upcoming.UpcomingActivity"
-    android:background="#F1EEEE">
+    android:background="@color/white"
+    tools:context=".ui.upcoming.UpcomingActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:gravity="center"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:textSize="100sp"
+            android:src="@drawable/logoforbit" />
+    </RelativeLayout>
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:title="@string/upcoming"
-        android:background="#FFEB3B"/>
+        app:titleTextColor="@color/white"
+        android:background="@color/gray_transparent"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:layout_margin="8dp"
         android:layout_below="@id/toolbar"
         android:layout_above="@id/bottomnavigation">
     </androidx.recyclerview.widget.RecyclerView>

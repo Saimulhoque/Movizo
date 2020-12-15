@@ -44,7 +44,6 @@ public class LiveTvAdapter extends RecyclerView.Adapter<LiveTvAdapter.MyViewHold
         return liveTvList.size();
     }
 
-
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView name;
         ImageView image;

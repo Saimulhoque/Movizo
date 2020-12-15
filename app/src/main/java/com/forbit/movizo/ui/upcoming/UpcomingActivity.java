@@ -39,10 +39,7 @@ public class UpcomingActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
-        //initialize and assign variable//
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnavigation);
-
-        //Set home selected//
         bottomNavigationView.setSelectedItemId(R.id.upcoming);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -65,7 +62,6 @@ public class UpcomingActivity extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), KidsActivity.class));
                         overridePendingTransition(0, 0);
                         return true;
-
                 }
                 return false;
             }

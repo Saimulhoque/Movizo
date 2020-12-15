@@ -29,7 +29,7 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.recyclerviewlayout,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.recyclerviewlayout, parent, false);
         return new MyViewHolder(v);
     }
 
@@ -46,12 +46,11 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-
         TextView name;
         ImageView image;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
             name = itemView.findViewById(R.id.MovieName);
             image = itemView.findViewById(R.id.MovieImage);
         }

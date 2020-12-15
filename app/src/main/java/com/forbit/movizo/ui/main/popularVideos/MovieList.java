@@ -5,7 +5,6 @@ public class MovieList {
     Integer MovieImage;
     String MovieName;
 
-
     public MovieList(Integer movieImage, String movieName) {
         MovieImage = movieImage;
         MovieName = movieName;

@@ -1,74 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".ui.main.buttonFragment.ButtonFragment"
-    android:padding="8dp">
+    android:background="@color/gray_transparent"
+    android:padding="4dp">
 
-    <LinearLayout
-        android:layout_width="0dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="8dp">
+        android:id="@+id/recyclerView"/>
 
-        <Button
-            android:id="@+id/banglamovies"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/bangla_movies"/>
+</RelativeLayout>
 
-        <Button
-            android:id="@+id/koreanmovies"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/korean_movies"/>
-
-        <Button
-            android:id="@+id/englishmovies"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/english_movies"/>
-
-        <Button
-            android:id="@+id/bangladrama"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/bangla_drama"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="8dp">
-        <Button
-            android:id="@+id/indianmovies"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/indian_movies"/>
-
-        <Button
-            android:id="@+id/chinesemovies"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/chinese_movies"/>
-
-        <Button
-            android:id="@+id/turkishmovies"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/turkish_movies"/>
-
-        <Button
-            android:id="@+id/tvshows"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/tv_shows"/>
-    </LinearLayout>
-
-</LinearLayout>
