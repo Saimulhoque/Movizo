@@ -1,34 +1,29 @@
 package com.forbit.movizo.ui.main;
-
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.SearchView;
-import android.widget.Toast;
-
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import androidx.appcompat.widget.SearchView;
+import androidx.core.view.MenuItemCompat;
 import androidx.viewpager.widget.ViewPager;
-
 import com.forbit.movizo.ui.kids.KidsActivity;
 import com.forbit.movizo.ui.livetv.LiveTvActivity;
 import com.forbit.movizo.R;
 import com.forbit.movizo.ui.main.popularVideos.PopularVideosFragment;
 import com.forbit.movizo.ui.upcoming.UpcomingActivity;
+import com.forbit.movizo.utils.BaseActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     ViewPager viewPager;
     int images[] = {R.drawable.slide1, R.drawable.slide2, R.drawable.slide3, R.drawable.slide4,R.drawable.slide5,R.drawable.slide6};
@@ -40,17 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        toolbar.inflateMenu(R.menu.menu);
-        Calendar cal = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        String currentDate = df.format(cal.getTime());
-        toolbar.setSubtitle(currentDate);
-        toolbar.setSubtitleTextColor(Color.WHITE);
-        toolbar.setTitle("Movizo");
-        toolbar.setTitleTextColor(Color.WHITE);
+        setupToolBar(R.id.toolbar);
 
         popularVideosFragment = (PopularVideosFragment) getSupportFragmentManager().findFragmentById(R.id.popularVideos);
         recentlyAddedMovies = (PopularVideosFragment) getSupportFragmentManager().findFragmentById(R.id.recentlyadded);
@@ -80,9 +65,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 3000, 3000);
 
-        //initialize and assign variable//
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnavigation);
-        //Set home selected//
         bottomNavigationView.setSelectedItemId(R.id.home);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -106,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
     }
 
     @Override
@@ -114,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu, menu);
         MenuItem item = menu.findItem(R.id.search);
         return super.onCreateOptionsMenu(menu);
+
     }
 
     public void onBackPressed() {

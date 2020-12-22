@@ -1,10 +1,8 @@
 package com.forbit.movizo.ui.main.categorie;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -14,17 +12,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-
 import com.forbit.movizo.R;
 import com.forbit.movizo.model.Category;
 import com.forbit.movizo.model.Movie;
+import com.forbit.movizo.utils.BaseActivity;
 import com.forbit.movizo.utils.Constant;
 import com.forbitbd.myplayer.MyPlayerActivity;
-
 import java.util.Calendar;
 import java.util.List;
 
-public class CategoryActivity extends AppCompatActivity implements MovieClickListener, CategoryContract.View {
+
+public class CategoryActivity extends BaseActivity implements MovieClickListener, CategoryContract.View {
 
     private RadioGroup radioGroup;
     MovieAdapter adapter;
@@ -40,27 +38,26 @@ public class CategoryActivity extends AppCompatActivity implements MovieClickLis
         mPresenter = new CategoryPresenter(this);
         this.category = (Category) getIntent().getSerializableExtra(Constant.CATEGORY);
         recyclerView = findViewById(R.id.recyclerView);
-        adapter = new MovieAdapter(this,this);
+        adapter = new MovieAdapter(this, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle(category.getName());
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        toolbar.inflateMenu(R.menu.menu);
+        setupToolBar(R.id.toolbar);
+        getSupportActionBar().setTitle(category.getName());
+
+
 
         radioGroup = findViewById(R.id.radio_group);
 //        int year = new Date().getYear();
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
 
-        for (int i=0;i<100;i++){
+        for (int i = 0; i < 100; i++) {
             RadioButton radioButton = new RadioButton(this);
-            if(i==0){
+            if (i == 0) {
                 radioButton.setText("ALL");
-            }else{
-                radioButton.setText(String.valueOf(year+1-i));
+            } else {
+                radioButton.setText(String.valueOf(year + 1 - i));
             }
 
             radioButton.setGravity(Gravity.CENTER);
@@ -72,21 +69,15 @@ public class CategoryActivity extends AppCompatActivity implements MovieClickLis
             radioButton.setWidth(150);
             radioButton.setTextColor(R.color.black);
             radioGroup.addView(radioButton);
-
-
         }
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                Log.d("HHHHHHH",checkedId+"");
+                Log.d("HHHHHHH", checkedId + "");
             }
         });
-
-
         mPresenter.getCategorizedMovies(category);
-
-
     }
 
     @Override
@@ -101,14 +92,16 @@ public class CategoryActivity extends AppCompatActivity implements MovieClickLis
     @Override
     public void onMovieClick(Movie movie) {
         Intent intent = new Intent(getApplicationContext(), MyPlayerActivity.class);
-        intent.putExtra(Constant.VIDEO_URL,movie.getVideo_url());
+        intent.putExtra(Constant.VIDEO_URL, movie.getVideo_url());
         startActivity(intent);
     }
 
     @Override
     public void renderMovies(List<Movie> movieList) {
-        for(Movie x: movieList){
+        for (Movie x : movieList) {
             adapter.addMovie(x);
         }
     }
+
+
 }

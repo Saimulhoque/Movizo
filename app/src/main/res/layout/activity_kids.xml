@@ -10,12 +10,12 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="250dp"
+        android:gravity="center"
         android:layout_centerInParent="true">
 
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:gravity="center"
             android:textSize="100sp"
             android:src="@drawable/logoforbit" />
     </RelativeLayout>
@@ -25,9 +25,9 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/gray_transparent"
         app:title="@string/kids_zone"
-        app:titleTextColor="@color/white"/>
+        android:background="@color/gray_transparent">
+    </androidx.appcompat.widget.Toolbar>
 
         <ScrollView
             android:layout_below="@id/toolbar"

@@ -13,12 +13,13 @@ import com.forbit.movizo.R;
 import com.forbit.movizo.ui.upcoming.UpcomingActivity;
 import com.forbit.movizo.ui.kids.KidsActivity;
 import com.forbit.movizo.ui.main.MainActivity;
+import com.forbit.movizo.utils.BaseActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LiveTvActivity extends AppCompatActivity {
+public class LiveTvActivity extends BaseActivity {
 
     LiveTvAdapter liveTvAdapter;
     RecyclerView recyclerView;
@@ -28,6 +29,8 @@ public class LiveTvActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live_tv);
+
+        setupToolBar(R.id.toolbar);
 
         liveTvList = new ArrayList<>();
         for (int i=0;i<100;i++){

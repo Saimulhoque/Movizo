@@ -23,7 +23,7 @@
             android:layout_weight="4"
             android:contentDescription="@string/icon"
             android:scaleType="fitXY"
-            android:src="@drawable/movie1" />
+            android:src="@drawable/penguin" />
 
         <TextView
             android:id="@+id/MovieName"

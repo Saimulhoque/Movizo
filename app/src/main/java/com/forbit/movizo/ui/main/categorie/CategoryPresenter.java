@@ -23,11 +23,13 @@ public class CategoryPresenter implements CategoryContract.Presenter {
 
     @Override
     public void getCategorizedMovies(Category category) {
+        mView.showProgressDialog();
         ApiClient client = ServiceGenerator.createService(ApiClient.class);
         client.getCategorizedMovies(category.get_id())
                 .enqueue(new Callback<List<Movie>>() {
                     @Override
                     public void onResponse(Call<List<Movie>> call, Response<List<Movie>> response) {
+                        mView.hideProgressDialog();
                         if(response.isSuccessful()){
                             mView.renderMovies(response.body());
 
@@ -39,6 +41,7 @@ public class CategoryPresenter implements CategoryContract.Presenter {
 
                     @Override
                     public void onFailure(Call<List<Movie>> call, Throwable t) {
+                        mView.hideProgressDialog();
                         Log.d("UUUUUUU","Errror "+t.getMessage());
                     }
                 });

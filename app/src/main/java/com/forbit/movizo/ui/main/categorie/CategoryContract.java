@@ -13,5 +13,7 @@ public interface CategoryContract {
 
     interface View{
         void renderMovies(List<Movie> movieList);
+        void showProgressDialog();
+        void hideProgressDialog();
     }
 }

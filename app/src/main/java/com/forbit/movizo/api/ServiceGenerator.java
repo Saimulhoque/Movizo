@@ -7,7 +7,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
     public class ServiceGenerator {
-        private static final String BASE_URL = "http://139.59.37.195:4444";
+        private static final String BASE_URL = "http://192.168.0.9:3000";
 
         private static final OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .readTimeout(60, TimeUnit.SECONDS)

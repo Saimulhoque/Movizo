@@ -1,56 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ui.main.categorie.CategoryActivity"
-    android:orientation="vertical">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:gravity="center"
-        android:layout_centerInParent="true">
-
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:textSize="100sp"
-            android:src="@drawable/logoforbit" />
-    </RelativeLayout>
+    android:orientation="vertical"
+    tools:context=".ui.main.categorie.CategoryActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/gray_transparent"
-        app:titleTextColor="@color/white"
-        app:title="@string/english_movies" >
+        android:background="@color/gray_transparent">
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_below="@+id/toolbar"
         android:background="@color/gray_transparent"
-        android:layout_below="@+id/toolbar">
+        android:orientation="vertical">
 
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scrollbars="none"
-            android:layout_below="@+id/toolbar">
+            android:layout_below="@+id/toolbar"
+            android:scrollbars="none">
 
             <RadioGroup
                 android:id="@+id/radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:orientation="horizontal">
-            </RadioGroup>
+                android:orientation="horizontal"
+                android:padding="8dp"/>
 
         </HorizontalScrollView>
 
@@ -58,10 +41,9 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_above="@+id/bottomnavigation"
             android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
-            android:layout_above="@+id/bottomnavigation">
-        </androidx.recyclerview.widget.RecyclerView>
+            android:layout_marginEnd="4dp"/>
 
     </LinearLayout>
 
