@@ -1,4 +1,4 @@
-package com.forbit.movizo.ui.main.popularVideos;
+package com.forbit.movizo.ui.main.featured;
 
 import android.os.Bundle;
 
@@ -13,32 +13,48 @@ import android.widget.TextView;
 
 import com.forbit.movizo.R;
 import com.forbit.movizo.model.Movie;
+import com.forbit.movizo.ui.main.popularVideos.RecyclerviewAdapter;
 
 import java.util.List;
 
 
-public class PopularVideosFragment extends Fragment implements PopularVideosContract.View {
+public class FeaturedFragment extends Fragment implements FeaturedContract.View {
+
     RecyclerviewAdapter recyclerviewAdapter;
     RecyclerView recyclerView;
     private TextView tvTitle;
 
-    private PopularVideosPresenter mPresenter;
+    private FeaturedPresenter mPresenter;
 
-    public PopularVideosFragment() {
+
+
+    public FeaturedFragment() {
         // Required empty public constructor
     }
+
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPresenter = new PopularVideosPresenter(this);
+
+        mPresenter = new FeaturedPresenter(this);
         recyclerviewAdapter = new RecyclerviewAdapter(getContext());
+
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_popular_videos, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_featured, container, false);
 
+        initView(view);
+        return view;
+    }
+
+    private void initView(View view) {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -46,19 +62,12 @@ public class PopularVideosFragment extends Fragment implements PopularVideosCont
         recyclerView.setAdapter(recyclerviewAdapter);
         tvTitle = view.findViewById(R.id.title);
 
-
-        mPresenter.getPopularMovies();
-
-        return view;
-    }
-
-    public void setTitle(String title){
-        tvTitle.setText(title);
+        mPresenter.getFeaturedMovies();
     }
 
     @Override
     public void renderMovies(List<Movie> movieList) {
-        for (Movie x: movieList){
+        for (Movie x:movieList){
             recyclerviewAdapter.add(x);
         }
     }

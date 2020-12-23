@@ -71,10 +71,10 @@
 
             <fragment
                 android:id="@+id/recentlyadded"
-                android:name="com.forbit.movizo.ui.main.popularVideos.PopularVideosFragment"
+                android:name="com.forbit.movizo.ui.main.featured.FeaturedFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:layout="@layout/fragment_popular_videos" />
+                tools:layout="@layout/fragment_featured" />
         </LinearLayout>
 
     </ScrollView>

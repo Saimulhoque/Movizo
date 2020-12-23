@@ -46,4 +46,56 @@ public class CategoryPresenter implements CategoryContract.Presenter {
                     }
                 });
     }
+
+    @Override
+    public void getCategorizedQueryMovies(Category category, String query) {
+        mView.showProgressDialog();
+
+        ApiClient client = ServiceGenerator.createService(ApiClient.class);
+
+        client.getCategorizedQueryMovies(category.get_id(),query)
+                .enqueue(new Callback<List<Movie>>() {
+                    @Override
+                    public void onResponse(Call<List<Movie>> call, Response<List<Movie>> response) {
+                        mView.hideProgressDialog();
+                        if(response.isSuccessful()){
+                            mView.renderMovies(response.body());
+                        }else {
+                            Log.d("UUUUUUU","Errror");
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Movie>> call, Throwable t) {
+                        mView.hideProgressDialog();
+                    }
+                });
+
+    }
+
+    @Override
+    public void getCategorizedYearlyMovies(Category category, int year) {
+        mView.showProgressDialog();
+
+        ApiClient client = ServiceGenerator.createService(ApiClient.class);
+
+        client.getCategorizedYearlyMovies(category.get_id(),year)
+                .enqueue(new Callback<List<Movie>>() {
+                    @Override
+                    public void onResponse(Call<List<Movie>> call, Response<List<Movie>> response) {
+                        mView.hideProgressDialog();
+
+                        if(response.isSuccessful()){
+                            Log.d("HHHHHHH",response.body().size()+"");
+                            mView.clearAndRenderMovies(response.body());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Movie>> call, Throwable t) {
+                        mView.hideProgressDialog();
+                    }
+                });
+
+    }
 }

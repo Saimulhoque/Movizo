@@ -22,6 +22,19 @@ public interface ApiClient {
     @GET("/categories/{cat_id}/movies")
     Call<List<Movie>> getCategorizedMovies(@Path("cat_id") String catId);
 
+    @GET("/categories/{cat_id}/movies/{query}")
+    Call<List<Movie>> getCategorizedQueryMovies(@Path("cat_id") String catId,@Path("query") String query);
+
+
+    @GET("/categories/{cat_id}/movies/year/{year}")
+    Call<List<Movie>> getCategorizedYearlyMovies(@Path("cat_id") String catId,@Path("year") int year);
+
+
+    @GET("/movies/popular")
+    Call<List<Movie>> getPopularMovies();
+
+    @GET("/movies/featured")
+    Call<List<Movie>> getFeaturedMovies();
 
 
     }

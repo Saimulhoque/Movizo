@@ -11,18 +11,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.forbit.movizo.R;
+import com.forbit.movizo.model.Movie;
+import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapter.MyViewHolder> {
 
     private Context context;
-    private List<MovieList> movieLists;
+    private List<Movie> movieList;
     LayoutInflater inflater;
 
-    public RecyclerviewAdapter(Context context, List<MovieList> movieLists) {
+    public RecyclerviewAdapter(Context context) {
         this.context = context;
-        this.movieLists = movieLists;
+        this.movieList = new ArrayList<>();
         this.inflater = LayoutInflater.from(context);
     }
 
@@ -35,14 +38,19 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerviewAdapter.MyViewHolder holder, int position) {
-        MovieList movieList = movieLists.get(position);
-        holder.name.setText(movieList.getMovieName());
-        holder.image.setImageResource(movieList.getMovieImage());
+        Movie movie = movieList.get(position);
+        holder.bind(movie);
     }
 
     @Override
     public int getItemCount() {
-        return movieLists.size();
+        return movieList.size();
+    }
+
+    public void add(Movie movie){
+        movieList.add(movie);
+        int position = movieList.indexOf(movie);
+        notifyItemInserted(position);
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -53,6 +61,13 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
             super(itemView);
             name = itemView.findViewById(R.id.MovieName);
             image = itemView.findViewById(R.id.MovieImage);
+        }
+
+        public void bind(Movie movie){
+            name.setText(movie.getTitle());
+            if(movie.getImage_url()!=null || !movie.getImage_url().equals("")){
+                Picasso.get().load(movie.getImage_url()).into(image);
+            }
         }
     }
 }

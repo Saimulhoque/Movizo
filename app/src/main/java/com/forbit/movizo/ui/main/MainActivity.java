@@ -4,12 +4,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SearchView;
-import androidx.core.view.MenuItemCompat;
 import androidx.viewpager.widget.ViewPager;
 import com.forbit.movizo.ui.kids.KidsActivity;
 import com.forbit.movizo.ui.livetv.LiveTvActivity;
@@ -19,7 +15,6 @@ import com.forbit.movizo.ui.upcoming.UpcomingActivity;
 import com.forbit.movizo.utils.BaseActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
-import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -28,7 +23,6 @@ public class MainActivity extends BaseActivity {
     ViewPager viewPager;
     int images[] = {R.drawable.slide1, R.drawable.slide2, R.drawable.slide3, R.drawable.slide4,R.drawable.slide5,R.drawable.slide6};
     int currentPageCounter = 0;
-    PopularVideosFragment popularVideosFragment, recentlyAddedMovies;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,11 +30,6 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         setupToolBar(R.id.toolbar);
-
-        popularVideosFragment = (PopularVideosFragment) getSupportFragmentManager().findFragmentById(R.id.popularVideos);
-        recentlyAddedMovies = (PopularVideosFragment) getSupportFragmentManager().findFragmentById(R.id.recentlyadded);
-        popularVideosFragment.setTitle("Popular Movies");
-        recentlyAddedMovies.setTitle("Recently Added Movies");
 
         viewPager = findViewById(R.id.slideview);
         viewPager.setAdapter(new SliderAdapter(images, MainActivity.this));
