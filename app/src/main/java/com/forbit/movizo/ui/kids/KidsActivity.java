@@ -23,32 +23,12 @@ import java.util.List;
 
 public class KidsActivity extends BaseActivity {
 
-    PopularVideosFragment mrbean,mashaandthebear,tootooboy,tomandjerry,motopatlu,chotabheem,rudra,inspectorsingham;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kids);
 
         setupToolBar(R.id.toolbar);
-
-        mrbean = (PopularVideosFragment) getSupportFragmentManager().findFragmentById(R.id.Mr_Bean);
-        mashaandthebear = (PopularVideosFragment) getSupportFragmentManager().findFragmentById(R.id.masha_andbear);
-        tootooboy = (PopularVideosFragment) getSupportFragmentManager().findFragmentById(R.id.tootoo_boy);
-        tomandjerry = (PopularVideosFragment) getSupportFragmentManager().findFragmentById(R.id.tomand_jerry);
-        motopatlu = (PopularVideosFragment) getSupportFragmentManager().findFragmentById(R.id.moto_patlu);
-        chotabheem = (PopularVideosFragment) getSupportFragmentManager().findFragmentById(R.id.chota_bheem);
-        rudra = (PopularVideosFragment) getSupportFragmentManager().findFragmentById(R.id.Rudra);
-        inspectorsingham = (PopularVideosFragment) getSupportFragmentManager().findFragmentById(R.id.inspector_singham);
-
-        mrbean.setTitle("Mr Bean");
-        mashaandthebear.setTitle("Masha And The Bear");
-        tootooboy.setTitle("Too Too Boy");
-        tomandjerry.setTitle("Tom And Jerry");
-        motopatlu.setTitle("Motu Patlu");
-        chotabheem.setTitle("Chota Bheem");
-        rudra.setTitle("Rudra");
-        inspectorsingham.setTitle("Inspector Singham");
 
         //initialize and assign variable//
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnavigation);

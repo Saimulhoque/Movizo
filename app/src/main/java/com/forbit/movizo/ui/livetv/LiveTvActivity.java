@@ -33,7 +33,7 @@ public class LiveTvActivity extends BaseActivity {
         setupToolBar(R.id.toolbar);
 
         liveTvList = new ArrayList<>();
-        for (int i=0;i<100;i++){
+        for (int i=0;i<1;i++){
             liveTvList.add(new LiveTv(R.drawable.somoy, "TV "+String.valueOf(i+1)));
         }
 

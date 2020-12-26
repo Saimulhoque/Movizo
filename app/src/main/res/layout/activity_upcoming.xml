@@ -18,7 +18,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:textSize="100sp"
-            android:src="@drawable/logoforbit" />
+            android:src="@drawable/logo" />
     </RelativeLayout>
 
     <androidx.appcompat.widget.Toolbar

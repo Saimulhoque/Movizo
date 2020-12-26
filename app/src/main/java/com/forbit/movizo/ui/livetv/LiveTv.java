@@ -2,27 +2,27 @@ package com.forbit.movizo.ui.livetv;
 
 public class LiveTv {
 
-    Integer MovieImage;
-    String MovieName;
+    Integer TvImage;
+    String TvName;
 
     public LiveTv(Integer movieImage, String movieName) {
-        MovieImage = movieImage;
-        MovieName = movieName;
+        TvImage = movieImage;
+        TvName = movieName;
     }
 
     public Integer getMovieImage() {
-        return MovieImage;
+        return TvImage;
     }
 
     public void setMovieImage(Integer movieImage) {
-        MovieImage = movieImage;
+        TvImage = movieImage;
     }
 
     public String getMovieName() {
-        return MovieName;
+        return TvName;
     }
 
     public void setMovieName(String movieName) {
-        MovieName = movieName;
+        TvName = movieName;
     }
 }

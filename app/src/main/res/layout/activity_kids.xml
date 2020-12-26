@@ -17,7 +17,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:textSize="100sp"
-            android:src="@drawable/logoforbit" />
+            android:src="@drawable/logo" />
     </RelativeLayout>
 
 
@@ -28,83 +28,6 @@
         app:title="@string/kids_zone"
         android:background="@color/gray_transparent">
     </androidx.appcompat.widget.Toolbar>
-
-        <ScrollView
-            android:layout_below="@id/toolbar"
-            android:layout_above="@id/bottomnavigation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_below="@id/toolbar">
-                <fragment
-                    android:id="@+id/Mr_Bean"
-                    android:name="com.forbit.movizo.ui.main.popularVideos.PopularVideosFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:layout="@layout/fragment_popular_videos" />
-
-                <fragment
-                    android:id="@+id/masha_andbear"
-                    android:name="com.forbit.movizo.ui.main.popularVideos.PopularVideosFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/toolbar"
-                    tools:layout="@layout/fragment_popular_videos" />
-
-                <fragment
-                    android:id="@+id/tootoo_boy"
-                    android:name="com.forbit.movizo.ui.main.popularVideos.PopularVideosFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/toolbar"
-                    tools:layout="@layout/fragment_popular_videos" />
-
-                <fragment
-                    android:id="@+id/tomand_jerry"
-                    android:name="com.forbit.movizo.ui.main.popularVideos.PopularVideosFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/toolbar"
-                    tools:layout="@layout/fragment_popular_videos" />
-
-                <fragment
-                    android:id="@+id/moto_patlu"
-                    android:name="com.forbit.movizo.ui.main.popularVideos.PopularVideosFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/toolbar"
-                    tools:layout="@layout/fragment_popular_videos" />
-
-                <fragment
-                    android:id="@+id/chota_bheem"
-                    android:name="com.forbit.movizo.ui.main.popularVideos.PopularVideosFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/toolbar"
-                    tools:layout="@layout/fragment_popular_videos" />
-
-                <fragment
-                    android:id="@+id/Rudra"
-                    android:name="com.forbit.movizo.ui.main.popularVideos.PopularVideosFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/toolbar"
-                    tools:layout="@layout/fragment_popular_videos" />
-
-                <fragment
-                    android:id="@+id/inspector_singham"
-                    android:name="com.forbit.movizo.ui.main.popularVideos.PopularVideosFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/toolbar"
-                    tools:layout="@layout/fragment_popular_videos" />
-
-            </LinearLayout>
-        </ScrollView>
-
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
