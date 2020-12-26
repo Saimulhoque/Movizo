@@ -1,5 +1,6 @@
 package com.forbit.movizo.ui.main.popularVideos;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,11 +14,13 @@ import android.widget.TextView;
 
 import com.forbit.movizo.R;
 import com.forbit.movizo.model.Movie;
+import com.forbit.movizo.utils.Constant;
+import com.forbitbd.myplayer.MyPlayerActivity;
 
 import java.util.List;
 
 
-public class PopularVideosFragment extends Fragment implements PopularVideosContract.View {
+public class PopularVideosFragment extends Fragment implements PopularVideosContract.View , ItemClickListener {
     RecyclerviewAdapter recyclerviewAdapter;
     RecyclerView recyclerView;
     private TextView tvTitle;
@@ -32,7 +35,7 @@ public class PopularVideosFragment extends Fragment implements PopularVideosCont
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPresenter = new PopularVideosPresenter(this);
-        recyclerviewAdapter = new RecyclerviewAdapter(getContext());
+        recyclerviewAdapter = new RecyclerviewAdapter(getContext(),this);
     }
 
     @Override
@@ -61,5 +64,12 @@ public class PopularVideosFragment extends Fragment implements PopularVideosCont
         for (Movie x: movieList){
             recyclerviewAdapter.add(x);
         }
+    }
+
+    @Override
+    public void onItemClick(Movie movie) {
+        Intent intent = new Intent(getContext(), MyPlayerActivity.class);
+        intent.putExtra(Constant.VIDEO_URL, movie.getVideo_url());
+        startActivity(intent);
     }
 }

@@ -15,25 +15,25 @@ public interface ApiClient {
 //        @POST("/api/api/tags")
 //        Call<List<String>> getTags(@Body TagRequest tagRequest);
 
-    @GET("/categories")
+    @GET("/movizo/categories")
     Call<List<Category>> getAllCategories();
 
 
-    @GET("/categories/{cat_id}/movies")
+    @GET("/movizo/categories/{cat_id}/movies")
     Call<List<Movie>> getCategorizedMovies(@Path("cat_id") String catId);
 
-    @GET("/categories/{cat_id}/movies/{query}")
+    @GET("/movizo/categories/{cat_id}/movies/{query}")
     Call<List<Movie>> getCategorizedQueryMovies(@Path("cat_id") String catId,@Path("query") String query);
 
 
-    @GET("/categories/{cat_id}/movies/year/{year}")
+    @GET("/movizo/categories/{cat_id}/movies/year/{year}")
     Call<List<Movie>> getCategorizedYearlyMovies(@Path("cat_id") String catId,@Path("year") int year);
 
 
-    @GET("/movies/popular")
+    @GET("/movizo/movies/popular")
     Call<List<Movie>> getPopularMovies();
 
-    @GET("/movies/featured")
+    @GET("/movizo/movies/featured")
     Call<List<Movie>> getFeaturedMovies();
 
 

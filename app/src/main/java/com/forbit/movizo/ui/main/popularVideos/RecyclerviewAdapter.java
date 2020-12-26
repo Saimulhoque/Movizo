@@ -22,11 +22,13 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
     private Context context;
     private List<Movie> movieList;
     LayoutInflater inflater;
+    private ItemClickListener listener;
 
-    public RecyclerviewAdapter(Context context) {
+    public RecyclerviewAdapter(Context context , ItemClickListener listener) {
         this.context = context;
         this.movieList = new ArrayList<>();
         this.inflater = LayoutInflater.from(context);
+        this.listener = listener;
     }
 
     @NonNull
@@ -53,7 +55,7 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
         notifyItemInserted(position);
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name;
         ImageView image;
 
@@ -61,6 +63,7 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
             super(itemView);
             name = itemView.findViewById(R.id.MovieName);
             image = itemView.findViewById(R.id.MovieImage);
+            itemView.setOnClickListener(this);
         }
 
         public void bind(Movie movie){
@@ -68,6 +71,11 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
             if(movie.getImage_url()!=null || !movie.getImage_url().equals("")){
                 Picasso.get().load(movie.getImage_url()).into(image);
             }
+        }
+
+        @Override
+        public void onClick(View v) {
+            listener.onItemClick(movieList.get(getAdapterPosition()));
         }
     }
 }

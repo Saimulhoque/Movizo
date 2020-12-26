@@ -1,5 +1,6 @@
 package com.forbit.movizo.ui.main.featured;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,12 +14,15 @@ import android.widget.TextView;
 
 import com.forbit.movizo.R;
 import com.forbit.movizo.model.Movie;
+import com.forbit.movizo.ui.main.popularVideos.ItemClickListener;
 import com.forbit.movizo.ui.main.popularVideos.RecyclerviewAdapter;
+import com.forbit.movizo.utils.Constant;
+import com.forbitbd.myplayer.MyPlayerActivity;
 
 import java.util.List;
 
 
-public class FeaturedFragment extends Fragment implements FeaturedContract.View {
+public class FeaturedFragment extends Fragment implements FeaturedContract.View, ItemClickListener {
 
     RecyclerviewAdapter recyclerviewAdapter;
     RecyclerView recyclerView;
@@ -40,7 +44,7 @@ public class FeaturedFragment extends Fragment implements FeaturedContract.View 
         super.onCreate(savedInstanceState);
 
         mPresenter = new FeaturedPresenter(this);
-        recyclerviewAdapter = new RecyclerviewAdapter(getContext());
+        recyclerviewAdapter = new RecyclerviewAdapter(getContext(),this);
 
     }
 
@@ -70,5 +74,12 @@ public class FeaturedFragment extends Fragment implements FeaturedContract.View 
         for (Movie x:movieList){
             recyclerviewAdapter.add(x);
         }
+    }
+
+    @Override
+    public void onItemClick(Movie movie) {
+        Intent intent = new Intent(getContext(), MyPlayerActivity.class);
+        intent.putExtra(Constant.VIDEO_URL, movie.getVideo_url());
+        startActivity(intent);
     }
 }
