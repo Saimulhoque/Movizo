@@ -80,14 +80,6 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        MenuItem item = menu.findItem(R.id.search);
-        return super.onCreateOptionsMenu(menu);
-
-    }
-
     public void onBackPressed() {
         finishAffinity();
     }
