@@ -1,6 +1,8 @@
 package com.forbit.movizo.ui.main.featured;
 
-import com.forbit.movizo.model.Movie;
+
+
+import com.forbitbd.myplayer.models.Movie;
 
 import java.util.List;
 

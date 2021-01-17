@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.forbit.movizo.R;
-import com.forbit.movizo.model.Category;
+import com.forbitbd.myplayer.models.Category;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;

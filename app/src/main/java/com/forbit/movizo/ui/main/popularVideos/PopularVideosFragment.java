@@ -13,9 +13,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.forbit.movizo.R;
-import com.forbit.movizo.model.Movie;
-import com.forbit.movizo.utils.Constant;
 import com.forbitbd.myplayer.MyPlayerActivity;
+import com.forbitbd.myplayer.fullScreen.FullScreenPlayerActivity;
+import com.forbitbd.myplayer.models.Movie;
+import com.forbitbd.myplayer.utils.Constant;
 
 import java.util.List;
 
@@ -68,8 +69,8 @@ public class PopularVideosFragment extends Fragment implements PopularVideosCont
 
     @Override
     public void onItemClick(Movie movie) {
-        Intent intent = new Intent(getContext(), MyPlayerActivity.class);
-        intent.putExtra(Constant.VIDEO_URL, movie.getVideo_url());
+        Intent intent = new Intent(getContext(), FullScreenPlayerActivity.class);
+        intent.putExtra(Constant.MOVIE, movie);
         startActivity(intent);
     }
 }

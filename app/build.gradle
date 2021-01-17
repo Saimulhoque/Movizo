@@ -10,16 +10,43 @@ android {
         applicationId "com.forbit.movizo"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 1
+        versionCode 2
         versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
+    aaptOptions {
+        cruncherEnabled = false
+    }
+
+    signingConfigs {
         release {
+            storeFile file("/home/sohel/Desktop/BACKUP/KEYSTORE/Movizo/movizo.jks")
+            storePassword "s0201078"
+            keyAlias "android_key"
+            keyPassword "s0201078"
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+    buildTypes {
+        debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
@@ -47,7 +74,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation "androidx.recyclerview:recyclerview:1.1.0"
-    implementation 'com.github.sohel2178:MyPlayer:1.0.5'
+    implementation 'com.github.sohel2178:MyPlayer:1.0.8'
 
     //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'

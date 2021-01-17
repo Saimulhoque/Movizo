@@ -1,6 +1,7 @@
 package com.forbit.movizo.ui.main.popularVideos;
 
-import com.forbit.movizo.model.Movie;
+
+import com.forbitbd.myplayer.models.Movie;
 
 public interface ItemClickListener {
     void onItemClick(Movie movie);

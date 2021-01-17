@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.forbit.movizo.R;
-import com.forbit.movizo.model.Movie;
+import com.forbitbd.myplayer.models.Movie;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

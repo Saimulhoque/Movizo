@@ -7,16 +7,14 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import com.forbit.movizo.model.Category;
 import com.forbit.movizo.ui.main.categorie.CategoryActivity;
 import com.forbit.movizo.R;
-import com.forbit.movizo.utils.Constant;
+import com.forbitbd.myplayer.models.Category;
+import com.forbitbd.myplayer.utils.Constant;
 
 import java.util.List;
 

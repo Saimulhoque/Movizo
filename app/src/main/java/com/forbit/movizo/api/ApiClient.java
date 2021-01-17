@@ -1,7 +1,8 @@
 package com.forbit.movizo.api;
 
-import com.forbit.movizo.model.Category;
-import com.forbit.movizo.model.Movie;
+
+import com.forbitbd.myplayer.models.Category;
+import com.forbitbd.myplayer.models.Movie;
 
 import java.util.List;
 
