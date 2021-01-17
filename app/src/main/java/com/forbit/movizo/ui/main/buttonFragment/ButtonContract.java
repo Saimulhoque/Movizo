@@ -1,6 +1,7 @@
 package com.forbit.movizo.ui.main.buttonFragment;
 
-import com.forbit.movizo.model.Category;
+
+import com.forbitbd.myplayer.models.Category;
 
 import java.util.List;
 

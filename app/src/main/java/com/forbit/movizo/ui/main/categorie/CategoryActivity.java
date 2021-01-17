@@ -12,11 +12,13 @@ import android.view.MenuItem;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import com.forbit.movizo.R;
-import com.forbit.movizo.model.Category;
-import com.forbit.movizo.model.Movie;
 import com.forbit.movizo.utils.BaseActivity;
-import com.forbit.movizo.utils.Constant;
 import com.forbitbd.myplayer.MyPlayerActivity;
+import com.forbitbd.myplayer.fullScreen.FullScreenPlayerActivity;
+import com.forbitbd.myplayer.models.Category;
+import com.forbitbd.myplayer.models.Movie;
+import com.forbitbd.myplayer.utils.Constant;
+
 import java.util.Calendar;
 import java.util.List;
 
@@ -75,7 +77,7 @@ public class CategoryActivity extends BaseActivity implements MovieClickListener
                     RadioGroup.LayoutParams.WRAP_CONTENT,
                     RadioGroup.LayoutParams.WRAP_CONTENT
             );
-            params.rightMargin=10;
+            params.rightMargin=5;
             radioButton.setLayoutParams(params);
             radioButton.setMinimumWidth(150);
             if (Build.VERSION.SDK_INT >=Build.VERSION_CODES.M){
@@ -115,8 +117,8 @@ public class CategoryActivity extends BaseActivity implements MovieClickListener
 
     @Override
     public void onMovieClick(Movie movie) {
-        Intent intent = new Intent(getApplicationContext(), MyPlayerActivity.class);
-        intent.putExtra(Constant.VIDEO_URL, movie.getVideo_url());
+        Intent intent = new Intent(getApplicationContext(), FullScreenPlayerActivity.class);
+        intent.putExtra(Constant.MOVIE, movie);
         startActivity(intent);
     }
 
